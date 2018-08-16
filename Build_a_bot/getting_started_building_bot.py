@@ -2,8 +2,6 @@ import json
 import requests
 import time
 
-
-
 TOKEN = "673246689:AAH3rY9DLgpnDc2V96MoG4jwFJZoPg2ecEg"
 URL = "https://api.telegram.org/bot673246689:AAH3rY9DLgpnDc2V96MoG4jwFJZoPg2ecEg/"
 
@@ -18,8 +16,10 @@ def get_json_from_url(url):
     js = json.loads(content)
     return js
 
-def get_updates():
+def get_updates(offset=None):
     url = URL + "getUpdates"
+    if offset:
+        url += "?offset={}".format(offset)
     js = get_json_from_url(url)
     return js
 
@@ -46,11 +46,12 @@ def send_message(text, chat_id):
 def main():
     last_text = (None, None)
     while True:
-
         text, chat_id = get_chat_id(get_updates())
         if (text, chat_id) != last_text:
             send_message(text, chat_id)
             last_text = (text, chat_id)
+    time.sleep(0.5)
+
 
 if __name__=="__main__":
     main()

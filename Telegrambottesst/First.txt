@@ -1,0 +1,101 @@
+#
+#
+# x = 1000000000
+#
+# while x>500:
+#    x = x/2
+#    print (x)
+#
+# for numar in range(x):
+#    if x > 500:
+#        x = x/2
+#        print (x)
+#
+#    # Why I couldn t use continue
+#
+#
+# first_dic = {
+#       "mar": "rosu",
+#      "banana": "galbena",
+#      "fruct": "interzis"
+#      }
+# second_dic = {
+#      "computer": 10,
+#      "telefon": 4,
+#      "kindle": 7
+#  }
+#
+# last_dic = {
+#      1:34,
+#      2:67,
+#     77:89
+#
+#   }
+#
+#
+# result = {}
+#
+# for d in (first_dic, second_dic, last_dic): #ce imi ia, imi ia fiecare dictionar in parte sau fiecare item in parte?
+#    result.update(d)
+# print (result)
+#
+#
+# active = True
+# while active:
+#   result.update(first_dic)
+#   result.update(second_dic)
+#   result.update(last_dic)
+#
+#    active = False
+#
+#    print (result)
+#
+# all_together = [first_dic, second_dic, last_dic]
+# together = {}
+#
+# for  loop in all_together:
+#    together.update(loop)
+# print (together)
+#
+#
+# complex_dicct = {
+#   "today":  all_together
+# }
+# print (complex_dicct)
+#
+#
+# # print random.randint(1,21)*5, print ################################
+#
+#
+# import random
+# list = []
+# for i in range (1000):
+#  print (random.randint(2,1000))
+#   list.append(random.randint(2,1000))
+# print (list)
+#
+# sorted(list)
+# print (sorted(list))
+#
+#
+x = 0
+y = 1
+
+for i in range (7):
+   z = x + y
+   x = y
+   y = z
+print (y)
+
+#
+g = [10, 3, 5, 6, 6]
+h = [5, "sd", 4, 8]
+
+print (g + h)
+x = {'as':"ttt",
+     3: "ggg",
+     "as":33}
+
+print (x)
+
+

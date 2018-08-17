@@ -34,14 +34,23 @@ def send_message(text, chat_id):
     url = URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
     get_url(url)
 
-#sendMessage?text={}&chat_id={}"
-#
-# print(get_url(URL))
-# print(get_json_from_url(URL))
-# print(get_updates())
-# print(get_chat_id(get_updates()))
-# text, chat_id = get_chat_id(get_updates())
-# send_message(text, chat_id)
+def get_last_update_id(updates):
+    get_last = []
+    for upd in updates["result"]:
+        get_last.append(upd["update_id"])
+    print(get_last)
+    return max(get_last)
+
+def echo_all_messages(updates):
+    try:
+        for updt in updates["result"]:
+            text = updt["message"]["text"]
+            chat_id = updt["message"]["chat"]["id"]
+            send_message(text,chat_id)
+    except Exception as e:
+        print(e)
+
+
 
 def main():
     last_text = (None, None)
@@ -50,9 +59,12 @@ def main():
         if (text, chat_id) != last_text:
             send_message(text, chat_id)
             last_text = (text, chat_id)
-    time.sleep(0.5)
+
+        time.sleep(0.5)
 
 
 if __name__=="__main__":
     main()
 
+
+print(echo_all_messages(get_updates()))

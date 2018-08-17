@@ -51,17 +51,14 @@ def echo_all_messages(updates):
         print(e)
 
 
-
 def main():
-    last_text = (None, None)
+    last_update_id = None
     while True:
-        text, chat_id = get_chat_id(get_updates())
-        if (text, chat_id) != last_text:
-            send_message(text, chat_id)
-            last_text = (text, chat_id)
-
+        updates = get_updates(last_update_id) #get the information fro the ast id
+        if len(updates["result"]) > 0: #to start only when there is a message
+            last_update_id = get_last_update_id(updates) + 1
+            echo_all_messages(updates)
         time.sleep(0.5)
-
 
 if __name__=="__main__":
     main()

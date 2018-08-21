@@ -19,8 +19,10 @@ def get_data_from_url(url):
     return json_data
 
 
-def get_updates():
+def get_updates(offset = None):
     url = URL + "getUpdates"
+    if offset:
+        url += "?offset={}".format(offset)
     json_updates = get_data_from_url(url)
     return json_updates
 
@@ -44,22 +46,33 @@ def send_message(text, chat_id):
     url = URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
     get_the_url(url)
 
+def echo_all_messages(updates):
+    for update in updates["result"]:
+        try:
+            text = update["message"]["text"]
+            id = update["message"]["chat"]["id"]
+            send_message(text, id)
+        except Exception as e:
+            print(e)
 
-get_the_url(URL)
-get_data_from_url(URL)
-print(get_updates())
-print(get_updated_chat_id_and_text(get_updates()))
-text, chat_id = get_updated_chat_id_and_text(get_updates())
-send_message(text, chat_id)
+
+
+# get_the_url(URL)
+# get_data_from_url(URL)
+# print(get_updates())
+# print(get_updated_chat_id_and_text(get_updates()))
+# text, chat_id = get_updated_chat_id_and_text(get_updates())
+# send_message(text, chat_id)
 
 def main():
-    last_text = (None, None)
+    last_update_id = None
     while True:
-        text, chat_id = get_updated_chat_id_and_text(get_updated_id())
-        if (text, chat_id) != last_text:
-            send_message(text, chat_id)
+        updates = get_updates(last_update_id)
+        if len(updates["result"]) > 0:
+            last_update_id = get_updated_id(updates) + 1
+            echo_all_messages(updates)
         time.sleep(0.5)
 
 if __name__=="main":
     main()
-
+main()

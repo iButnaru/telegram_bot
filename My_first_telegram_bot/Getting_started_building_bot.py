@@ -1,5 +1,6 @@
 import json
 import requests
+import time
 
 
 TOKEN = "673246689:AAH3rY9DLgpnDc2V96MoG4jwFJZoPg2ecEg"
@@ -42,3 +43,15 @@ print(get_updates())
 print(get_updated_chat_id_and_text(get_updates()))
 text, chat_id = get_updated_chat_id_and_text(get_updates())
 send_message(text, chat_id)
+
+def main():
+    last_text = (None, None)
+    while True:
+        text, chat_id = get_updated_chat_id_and_text(get_updates())
+        if (text, chat_id) != last_text:
+            send_message(text, chat_id)
+        time.sleep(0.5)
+
+if __name__=="main":
+    main()
+

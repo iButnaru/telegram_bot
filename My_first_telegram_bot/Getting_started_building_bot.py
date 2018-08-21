@@ -25,6 +25,14 @@ def get_updates():
     return json_updates
 
 
+def get_updated_id(updates):
+    updated_id = []
+    for update in updates["result"]:
+        id = update["update_id"]
+        updated_id.append(id)
+        return  max(updated_id)
+
+
 def get_updated_chat_id_and_text(updates):
     number_upd = len(updates["result"])
     last_update = number_upd - 1
@@ -47,7 +55,7 @@ send_message(text, chat_id)
 def main():
     last_text = (None, None)
     while True:
-        text, chat_id = get_updated_chat_id_and_text(get_updates())
+        text, chat_id = get_updated_chat_id_and_text(get_updated_id())
         if (text, chat_id) != last_text:
             send_message(text, chat_id)
         time.sleep(0.5)

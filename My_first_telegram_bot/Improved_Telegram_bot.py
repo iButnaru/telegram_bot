@@ -6,7 +6,7 @@ from Bot_SQLite_Database import DBStore
 db = DBStore()
 
 TOKEN = "673246689:AAH3rY9DLgpnDc2V96MoG4jwFJZoPg2ecEg"
-URL = "https://api.telegram.org/bot673246689:AAH3rY9DLgpnDc2V96MoG4jwFJZoPg2ecEg/"
+URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 
 def get_the_url(url):
@@ -22,7 +22,7 @@ def get_data_from_url(url):
 
 
 def get_updates(offset=None):
-    url = URL + "getUpdates?timeout=100"
+    url = URL + "getUpdates"
     if offset:
         url += "?offset={}".format(offset)
     json_updates = get_data_from_url(url)
@@ -32,9 +32,8 @@ def get_updates(offset=None):
 def get_updated_id(updates):
     updated_id = []
     for update in updates["result"]:
-        id = update["update_id"]
-        updated_id.append(id)
-        return max(updated_id)
+        updated_id.append(update["update_id"])
+    return max(updated_id)
 
 
 def get_updated_chat_id_and_text(updates):
@@ -50,27 +49,46 @@ def send_message(text, chat_id):
     get_the_url(url)
 
 
-def echo_all_messages(updates):
+# def echo_all_messages(updates):
+#     for update in updates["result"]:
+#         try:
+#             text = update["message"]["text"]
+#             chat = update["message"]["chat"]["id"]
+#             send_message(text, chat)
+#         except Exception as e:
+#             print(e)
+
+def control_updates(updates):
     for update in updates["result"]:
         try:
             text = update["message"]["text"]
             chat = update["message"]["chat"]["id"]
-            send_message(text, chat)
-        except Exception as e:
-            print(e)
+            items = db.get_item()
+            if text in items:
+                db.delete_items(text)
+                items = db.get_item()
+            else:
+                db.add_items(text)
+                items = db.get_item()
+            message = "\n".join(items)
+            send_message(message, chat)
+        except KeyError:
+            print("errrorrr")
 
 
 def main():
+    db.create_table()
     last_update_id = None
     while True:
         updates = get_updates(last_update_id)
         if len(updates["result"]) > 0:
             last_update_id = get_updated_id(updates) + 1
-            echo_all_messages(updates)
-        time.sleep(0.5)
+        control_updates(updates)
+    time.sleep(0.5)
 
 
 if __name__ == "__main__":
     main()
+
 
 

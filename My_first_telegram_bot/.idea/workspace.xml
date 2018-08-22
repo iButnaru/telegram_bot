@@ -14,8 +14,8 @@
       <file leaf-file-name="Getting_started_building_bot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Getting_started_building_bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="71" column="10" lean-forward="true" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+            <state relative-caret-position="1775">
+              <caret line="71" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="10" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -23,12 +23,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bot_SQLite_Database.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Bot_SQLite_Database.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bot_SQLite_Database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="370">
               <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Improved_Telegram_bot.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Improved_Telegram_bot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-205">
+              <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,6 +59,7 @@
       <list>
         <option value="$PROJECT_DIR$/Getting_started_building_bot.py" />
         <option value="$PROJECT_DIR$/Bot_SQLite_Database.py" />
+        <option value="$PROJECT_DIR$/Improved_Telegram_bot.py" />
       </list>
     </option>
   </component>
@@ -87,7 +100,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Bot_SQLite_Database">
+  <component name="RunManager" selected="Python.Improved_Telegram_bot">
     <configuration name="Bot_SQLite_Database" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,14 +135,33 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="2">
+    <configuration name="Improved_Telegram_bot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="My_first_telegram_bot" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Improved_Telegram_bot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.Getting_started_building_bot" />
       <item index="1" class="java.lang.String" itemvalue="Python.Bot_SQLite_Database" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Improved_Telegram_bot" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.Bot_SQLite_Database" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Getting_started_building_bot" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.Improved_Telegram_bot" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Bot_SQLite_Database" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Getting_started_building_bot" />
       </list>
     </recent_temporary>
   </component>
@@ -258,8 +290,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Getting_started_building_bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="71" column="10" lean-forward="true" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+        <state relative-caret-position="1775">
+          <caret line="71" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="10" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -268,9 +300,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Bot_SQLite_Database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="370">
           <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Improved_Telegram_bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-205">
+          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

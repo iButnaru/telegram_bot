@@ -10,6 +10,7 @@ URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 
 def get_the_url(url):
+    print("GET METHOD ON getupdates is called")
     response = requests.get(url)
     content = response.content.decode("utf-8")
     return content
@@ -65,10 +66,10 @@ def control_updates(updates):
             chat = update["message"]["chat"]["id"]
             items = db.get_item()
             if text in items:
-                db.delete_items(text)
+                db.delete_item(text)
                 items = db.get_item()
             else:
-                db.add_items(text)
+                db.add_item(text)
                 items = db.get_item()
             message = "\n".join(items)
             send_message(message, chat)
@@ -84,7 +85,7 @@ def main():
         if len(updates["result"]) > 0:
             last_update_id = get_updated_id(updates) + 1
         control_updates(updates)
-    time.sleep(0.5)
+    time.sleep(2)
 
 
 if __name__ == "__main__":

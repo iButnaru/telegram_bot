@@ -10,7 +10,6 @@ URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 
 def get_the_url(url):
-    print("GET METHOD ON getupdates is called")
     response = requests.get(url)
     content = response.content.decode("utf-8")
     return content
@@ -50,7 +49,14 @@ def send_message(text, chat_id):
     get_the_url(url)
     
 
-def control_updates(updates):
+def manage_updates(updates):
+    """
+    pulls latest received messages. checks whether the new messages are in database.
+    existing messages are being deleted.
+    non-existing messages are being stored in database.
+    :param updates:
+    :return:
+    """
     for update in updates["result"]:
         try:
             text = update["message"]["text"]
@@ -69,13 +75,19 @@ def control_updates(updates):
 
 
 def main():
+    """
+    bot entry point. runs every 2 seconds and saves received messages in database.
+    if an existing item is received then it will be deleted from the database.
+    at the end of every action the bot sends a message with all the stored items.
+    :return:
+    """
     db.create_table()
     last_update_id = None
     while True:
         updates = get_updates(last_update_id)
         if len(updates["result"]) > 0:
             last_update_id = get_updated_id(updates) + 1
-        control_updates(updates)
+        manage_updates(updates)
         time.sleep(2)
 
 

@@ -64,8 +64,8 @@ def control_updates(updates):
                 items = db.get_item()
             message = "\n".join(items)
             send_message(message, chat)
-        except KeyError:
-            print("errrorrr")
+        except KeyError as e:
+            print(e)
 
 
 def main():

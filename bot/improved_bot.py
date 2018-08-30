@@ -1,7 +1,7 @@
 import json
 import requests
 import time
-from bot_database import DBStore
+from bot.bot_database import DBStore
 
 db = DBStore()
 
